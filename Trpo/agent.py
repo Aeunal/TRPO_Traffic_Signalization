@@ -38,7 +38,6 @@ class Agent(object):
             rewards: shape = (episode len,)
             unscaled_obs: useful for training scalar, shape = (episode len, obs_dim)
         """
-        #print("Run Episode")
         obs = self.env.reset()
         observes, actions, rewards, unscaled_obs = [], [], [], []
         done = False
@@ -46,8 +45,7 @@ class Agent(object):
         scale, offset = self.scaler.get()
         scale[-1] = 1.0  # don't scale time step feature
         offset[-1] = 0.0  # don't offset time step feature
-        for i in range(self.timestep_limit):
-            #print("Run Step"+str(i))
+        for _ in range(self.timestep_limit):
             obs = obs.astype(np.float32).reshape((1, -1))
             obs = np.append(obs, [[step]], axis=1)  # add time step feature
             unscaled_obs.append(obs)

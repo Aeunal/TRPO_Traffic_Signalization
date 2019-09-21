@@ -19,5 +19,5 @@ class Environment(object):
             animate = self.animate
         s2, r, terminal, details = self.env.step(action)
         if animate:
-            self.env.render("gui")
+            self.env.render()
         return s2, r, terminal, details

@@ -15,8 +15,8 @@ class config(object):
     env_name = 'SumoGUI-v0'
     animate = False
 
-    timestep_limit = 100
-    timesteps_per_batch = 100
+    timestep_limit = 1000
+    timesteps_per_batch = 1000
     gamma = 0.99
     lam = 0.97
 

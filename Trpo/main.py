@@ -5,7 +5,7 @@ from utils import GracefulKiller, log_batch_stats
 def main():
     killer = GracefulKiller()
     agent = config.agent(config)
-    animate = True
+    animate = None
     for i in range(config.iterations):
         observes, actions, advantages, disc_sum_rew = agent.build_train_set(animate)
         log_batch_stats(observes, actions, advantages, disc_sum_rew, agent.logger, i)
